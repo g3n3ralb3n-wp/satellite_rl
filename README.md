@@ -32,6 +32,47 @@ By working through this project, you will:
 
 ### Installation (< 10 minutes)
 
+#### Option A: Automated Setup (Recommended)
+
+We provide setup scripts that automate the entire installation process:
+
+**On Linux/macOS**:
+```bash
+# Navigate to project directory
+cd satellite_rl
+
+# Run setup script
+chmod +x setup.sh
+./setup.sh
+
+# Activate virtual environment
+source venv_linux/bin/activate
+
+# Launch Jupyter Lab
+jupyter lab
+```
+
+**On Windows**:
+```cmd
+REM Navigate to project directory
+cd satellite_rl
+
+REM Run setup script
+setup.bat
+
+REM Activate virtual environment
+venv_windows\Scripts\activate
+
+REM Launch Jupyter Lab
+jupyter lab
+```
+
+Then open [notebook/satellite_sensor_tasking.ipynb](notebook/satellite_sensor_tasking.ipynb), select the `satellite_rl` kernel, and run all cells!
+
+#### Option B: Manual Setup
+
+If you prefer manual installation or the automated script encounters issues:
+
 1. **Clone or download this repository**
 
 2. **Navigate to project directory**:
@@ -92,9 +133,14 @@ satellite_rl/
 │   ├── test_environment.py              # Environment tests
 │   ├── test_agents.py                   # Agent tests
 │   └── test_transfer_learning.py        # Transfer learning tests
+├── setup.sh                              # Automated setup script (Linux/macOS)
+├── setup.bat                             # Automated setup script (Windows)
 ├── requirements.txt                      # Python dependencies
+├── .gitignore                            # Git ignore rules
 └── README.md                             # This file
 ```
+
+**Note**: Virtual environments (`venv_linux/`, `venv_windows/`) are created locally and excluded from version control.
 
 ## Usage
 
