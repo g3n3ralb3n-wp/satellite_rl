@@ -85,7 +85,7 @@ def plot_value_heatmap(
     fig, ax = plt.subplots(figsize=(8, 8))
 
     # Create heatmap
-    im = ax.imshow(value_grid, cmap=cmap, origin='lower', aspect='auto')
+    im = ax.imshow(value_grid, cmap=cmap, origin='upper', aspect='auto')
 
     ax.set_title(title, fontsize=14, fontweight='bold')
     ax.set_xlabel('X Position', fontsize=12)
@@ -154,7 +154,7 @@ def plot_policy_arrows(
         im = ax.imshow(
             value_grid,
             cmap='gray',
-            origin='lower',
+            origin='upper',
             alpha=0.5,
             aspect='auto'
         )
@@ -163,7 +163,10 @@ def plot_policy_arrows(
 
     # Arrow directions (dx, dy for each action)
     # Actions: 0=up, 1=down, 2=left, 3=right
-    # Note: With origin='lower', up (action 0) means decreasing row index → negative dy
+    # With origin='upper': row 0 at top, row increases downward on plot
+    # BUT: matplotlib arrow() uses data coordinates where +dy points UP
+    # Action 0 (up) = decrease row → visually UP → need arrow pointing UP → negative dy
+    # Action 1 (down) = increase row → visually DOWN → need arrow pointing DOWN → positive dy
     arrow_dx = {0: 0, 1: 0, 2: -0.3, 3: 0.3}
     arrow_dy = {0: -0.3, 1: 0.3, 2: 0, 3: 0}
 
