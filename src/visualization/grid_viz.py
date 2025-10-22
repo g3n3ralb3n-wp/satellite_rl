@@ -163,8 +163,9 @@ def plot_policy_arrows(
 
     # Arrow directions (dx, dy for each action)
     # Actions: 0=up, 1=down, 2=left, 3=right
+    # Note: With origin='lower', up (action 0) means decreasing row index → negative dy
     arrow_dx = {0: 0, 1: 0, 2: -0.3, 3: 0.3}
-    arrow_dy = {0: 0.3, 1: -0.3, 2: 0, 3: 0}
+    arrow_dy = {0: -0.3, 1: 0.3, 2: 0, 3: 0}
 
     # Plot arrows for each grid cell
     for i in range(policy_grid.shape[0]):
